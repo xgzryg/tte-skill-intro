@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="了解 TTE Skill 的研究流程、分析模板、适用条件、使用授权和售后咨询方式。">
+  <meta name="theme-color" content="#f6f4ee">
+  <title>TTE Skill · 产品介绍</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f6f4ee;
+      --card: #fffef9;
+      --ink: #18293c;
+      --muted: #526176;
+      --blue: #2049d4;
+      --line: #cfd5dc;
+      --wash: #e9effe;
+      --dark: #142238;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 1.5rem; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 1rem/1.75 system-ui, "Microsoft YaHei", "PingFang SC", sans-serif; }
+    a { color: var(--blue); text-underline-offset: .23em; }
+    :focus-visible { outline: 3px solid #af5b1c; outline-offset: 4px; }
+    .wrap { width: min(1120px, calc(100% - 3.5rem)); margin-inline: auto; }
+    .skip { position: fixed; z-index: 2; top: .75rem; left: .75rem; padding: .45rem .8rem; background: var(--card); transform: translateY(-200%); }
+    .skip:focus { transform: none; }
+    .bar { border-bottom: 1px solid var(--line); }
+    .bar .wrap { min-height: 4rem; display: flex; align-items: center; justify-content: space-between; gap: .6rem 1rem; flex-wrap: wrap; padding-block: .65rem; }
+    .wordmark { color: var(--ink); font-size: 1.08rem; font-weight: 800; text-decoration: none; }
+    nav { display: flex; flex-wrap: wrap; gap: .2rem 1.25rem; font-size: .9rem; }
+    nav a { color: var(--muted); text-decoration: none; }
+    nav a:hover { color: var(--blue); text-decoration: underline; }
+    h1,h2,h3 { line-height: 1.25; margin: 0; text-wrap: balance; }
+    h1 { font-size: clamp(2.5rem, 5.6vw, 5rem); letter-spacing: -.06em; }
+    h2 { font-size: clamp(1.65rem, 3.1vw, 2.55rem); letter-spacing: -.035em; }
+    h3 { font-size: 1.07rem; }
+    p { margin: .65rem 0; }
+    .hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(1.7rem, 5vw, 5.25rem); align-items: center; padding-block: clamp(2.8rem, 7vw, 6.6rem); }
+    .hero h1 span { display: block; font-size: .56em; letter-spacing: -.035em; margin-top: .35em; }
+    .hero p { color: var(--muted); max-width: 35rem; margin-block: 1.25rem; }
+    .actions { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1.2rem; }
+    .btn { display: inline-block; padding: .68rem 1.1rem; border: 1px solid transparent; border-radius: .35rem; background: var(--blue); color: white; font: inherit; font-weight: 700; cursor: pointer; text-decoration: none; }
+    .btn:hover { background: #1738a7; }
+    .specimen { margin: 0; padding: clamp(1rem, 3vw, 1.85rem); border: 1px solid var(--line); border-radius: .65rem; background: var(--card); box-shadow: .45rem .55rem 0 #e2e6e8; }
+    .specimen figcaption { font-weight: 750; border-bottom: 1px solid var(--line); padding-bottom: .65rem; }
+    .axis { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .4rem; margin-top: .9rem; }
+    .axis div { border-top: 3px solid var(--line); padding: .48rem .15rem 0; }
+    .axis .zero { border-color: var(--blue); color: var(--blue); }
+    .axis small { display: block; color: var(--muted); font-size: .78rem; }
+    .strategies { display: grid; gap: .45rem; margin: .95rem 0 0; }
+    .strategies p { margin: 0; background: var(--wash); border-radius: .25rem; padding: .32rem .6rem; font-size: .86rem; }
+    .strategies strong { margin-right: .35rem; }
+    .section { padding-block: clamp(1.9rem, 4.2vw, 3.65rem); border-top: 1px solid var(--line); }
+    .intro { color: var(--muted); max-width: 48rem; margin: .75rem 0 1.4rem; }
+    .features { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem 1.25rem; }
+    .features article { border-top: 2px solid #8396d8; padding: .9rem .15rem .4rem; }
+    .features p { color: var(--muted); margin-bottom: 0; }
+    .two-col { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 1.5rem 3.2rem; }
+    .panel { background: var(--card); border: 1px solid var(--line); border-radius: .55rem; padding: 1.1rem 1.2rem; }
+    .panel h3 { margin: 0 0 .55rem; }
+    ul,ol { margin: .55rem 0 .05rem; padding-left: 1.35em; }
+    li { margin: .32rem 0; }
+    .checklist { margin-top: 1.05rem; }
+    .checklist div { display: grid; grid-template-columns: 8rem minmax(0,1fr); gap: .45rem 1.2rem; border-top: 1px solid var(--line); padding-block: .7rem; }
+    dt { font-weight: 700; }
+    dd { margin: 0; color: var(--muted); }
+    .legal-links { font-size: .9rem; color: var(--muted); margin-top: 1.25rem; }
+    .contact { background: var(--dark); color: #fff; padding-block: 2.5rem; }
+    .contact .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem 2rem; }
+    .contact p { margin: .45rem 0 0; color: #dbe6f8; }
+    .contact .btn { background: #e8efff; color: #173273; }
+    .contact .btn:hover { background: white; }
+    .account { font-weight: 800; font-size: 1.2rem; }
+    .status { display: block; color: #dbe6f8; font-size: .85rem; }
+    [hidden] { display: none !important; }
+    footer { padding: .95rem 0; color: var(--muted); font-size: .88rem; }
+    @media (max-width: 760px) {
+      .wrap { width: calc(100% - 2.25rem); }
+      .hero,.two-col { grid-template-columns: 1fr; }
+      .features { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .specimen { box-shadow: .25rem .32rem 0 #e2e6e8; }
+    }
+    @media (max-width: 430px) {
+      .features { grid-template-columns: 1fr; gap: .65rem; }
+      .checklist div { grid-template-columns: 1fr; gap: .15rem; }
+      .axis small { font-size: .72rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="bar" id="top">
+    <div class="wrap">
+      <a class="wordmark" href="#top">TTE Skill</a>
+      <nav aria-label="页面导航">
+        <a href="#features">功能</a>
+        <a href="#use">适用条件</a>
+        <a href="#terms">版权与售后</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="wrap hero" aria-labelledby="title">
+      <div>
+        <h1 id="title">TTE Skill<span>目标试验模拟科研工具</span></h1>
+        <p>在 Codex 中把临床问题写成目标试验方案，核查数据能否支持研究，再用可运行的 R 模板完成效应估计、诊断和报告。</p>
+        <div class="actions">
+          <a class="btn" href="https://xgzryg.github.io/tte-workflow-guide/">查看使用说明</a>
+          <a href="#contact">联系咨询</a>
+        </div>
+      </div>
+      <figure class="specimen" aria-label="目标试验设计示例">
+        <figcaption>示例 · 比较两种治疗启动策略</figcaption>
+        <div class="axis">
+          <div><strong>起点前</strong><small>核实既往信息</small></div>
+          <div class="zero"><strong>Time zero</strong><small>资格、分配与随访对齐</small></div>
+          <div><strong>起点后</strong><small>记录治疗与结局</small></div>
+        </div>
+        <div class="strategies">
+          <p><strong>策略 A</strong> 在预定窗口内启动治疗</p>
+          <p><strong>策略 B</strong> 按方案规定延后启动治疗</p>
+        </div>
+      </figure>
+    </section>
+
+    <section class="section wrap" id="features">
+      <h2>从选题到结果报告</h2>
+      <p class="intro">适合已有临床研究问题、准备使用观察性数据进行策略比较的研究者和课题组。也可用于审阅已有方案或复核分析结果。</p>
+      <div class="features">
+        <article><h3>选题与查新</h3><p>梳理已有研究和证据缺口，形成可检索、可比较的临床问题。</p></article>
+        <article><h3>方案与估计目标</h3><p>明确入组资格、治疗策略、共同起点、随访、结局和待估计的效应。</p></article>
+        <article><h3>数据可行性核查</h3><p>依据数据字典和病例时间线核实治疗时序、关键混杂因素和结局覆盖。</p></article>
+        <article><h3>统计分析模板</h3><p>按课题选择倾向评分加权、AIPW、TMLE、CCW、序贯试验、g-formula 或 LTMLE 的参考实现。</p></article>
+        <article><h3>诊断与可视化</h3><p>按方法查看协变量平衡、权重分布、有效样本量和风险曲线，导出可复核的表图。</p></article>
+        <article><h3>结果与报告</h3><p>将目标试验、数据定义、分析代码和结果对应起来，按 TARGET 报告要点说明假设和局限。</p></article>
+      </div>
+    </section>
+
+    <section class="section wrap" id="use">
+      <h2>使用前了解</h2>
+      <p class="intro">正式分析需要可访问的数据、数据字典和适合研究问题的记录。研究者据此确定数据来源、取数规则与最终方案。</p>
+      <div class="two-col">
+        <div class="panel">
+          <h3>Skill 可提供的资源</h3>
+          <ul>
+            <li>Codex Skill 工作流与方法说明</li>
+            <li>目标试验方案、数据映射和分析计划模板</li>
+            <li>R 分析和绘图脚本、配套配置及合成数据演示</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>运行环境与数据条件</h3>
+          <ul>
+            <li>准备 Codex 和所选分析需要的 R 依赖。</li>
+            <li>真实数据访问与字段映射由研究者结合所在项目完成。</li>
+            <li>研究结果取决于数据质量、设计和识别假设。统计显著性和发表结果由研究证据决定。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="terms">
+      <h2>获取、授权与售后</h2>
+      <p class="intro">如需获取 TTE Skill，请先通过微信说明使用场景。付款前请核对以下信息，并把双方确认的内容留存为文字记录。</p>
+      <dl class="checklist">
+        <div><dt>版本与交付</dt><dd>确认费用、版本、文件清单、交付方式和时间。安装指导、数据适配、定制分析和后续更新的范围可提前确认。</dd></div>
+        <div><dt>使用授权</dt><dd>原创材料的著作权由相应权利人保留。请确认允许的用户、用途、期限和共享范围。需要团队共享、公开发布副本或转售时，先核对相关许可并取得所需授权。第三方论文和附件请通过原始来源获取，软件包和引用资料遵循各自许可。</dd></div>
+        <div><dt>售后与退换</dt><dd>付款前确认售后支持、退换条件和处理方式。遇到文件缺失、无法解包、交付与约定不符或其他问题，可按约定及适用法律提出处理请求。</dd></div>
+        <div><dt>争议处理</dt><dd>通过微信 <strong>xgzryg</strong> 提供购买记录、版本、问题描述及希望的处理结果。涉及报错时，可提交去除患者信息和密钥的截图或日志。协商未果时，可依据适用规则寻求平台申诉、消费者调解、投诉或其他法定途径。</dd></div>
+        <div><dt>版权反馈</dt><dd>如需反馈权利问题，请通过微信提供作品名称、出处、涉及的文件或页面位置，以及可供核验的权利说明。</dd></div>
+      </dl>
+      <p class="legal-links">相关法规 <a href="https://www.ncac.gov.cn/xxfb/flfg/flfg_532/202103/t20210309_50530.html">《中华人民共和国著作权法》</a> · <a href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2023/art_0a323e046fba43f0b6e9e977f1e8d5fc.html">《中华人民共和国消费者权益保护法》</a></p>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div>
+          <h2 id="contact-title">获取 TTE Skill</h2>
+          <p>联系微信 <strong class="account" id="wechat-account">xgzryg</strong></p>
+        </div>
+        <div>
+          <button class="btn" id="copy-wechat" type="button" hidden>复制微信号</button>
+          <span class="status" id="copy-status" role="status"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">TTE Skill 产品介绍</footer>
+  <script>
+    const copy = document.getElementById('copy-wechat');
+    const status = document.getElementById('copy-status');
+    if (window.isSecureContext && navigator.clipboard) {
+      copy.hidden = false;
+      copy.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(document.getElementById('wechat-account').textContent);
+          status.textContent = '微信号已复制';
+        } catch {
+          status.textContent = '请选中微信号后手动复制';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
